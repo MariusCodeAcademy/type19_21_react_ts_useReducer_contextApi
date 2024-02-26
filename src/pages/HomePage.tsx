@@ -1,4 +1,5 @@
 export default function HomePage() {
+  // pasiimti spalva is konteksto
   return (
     <div className='container'>
       <h1>HomePage</h1>
