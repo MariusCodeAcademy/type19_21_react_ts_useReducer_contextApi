@@ -17,6 +17,12 @@ type AuthProviderProps = {
 };
 
 export default function AuthProvider({ children }: AuthProviderProps) {
+  // 1. Sukurti email state
+
+  // 2. prisiloginant irasyti email i state
+
+  // 3. atsiloginant istrinti email is state
+
   function login(email: string) {
     console.log('login user ===', email);
   }
