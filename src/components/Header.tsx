@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import myRoutes from '../routes';
 
 export default function Header() {
   return (
@@ -8,8 +9,11 @@ export default function Header() {
           Logo
         </Link>
         <nav className='main-nav'>
-          <NavLink to={'/'}>Home</NavLink>
-          <NavLink to={'/counters'}>Counters</NavLink>
+          {myRoutes.map((rObj) => (
+            <NavLink key={rObj.id} to={rObj.to}>
+              {rObj.title}
+            </NavLink>
+          ))}
         </nav>
       </div>
     </header>
