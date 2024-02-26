@@ -1,8 +1,14 @@
+import { useContext } from 'react';
+import { AuthContext } from '../store/AuthProvider';
+
 export default function LoginPage() {
+  const ctxVal = useContext(AuthContext);
+  console.log('ctxVal ===', ctxVal);
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     console.log('pateikta forma');
+    ctxVal.login('James@bond.com');
   }
 
   return (

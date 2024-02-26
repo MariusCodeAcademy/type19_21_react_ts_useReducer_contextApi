@@ -1,12 +1,12 @@
 import { createContext } from 'react';
 
 type CtxType = {
-  login(email: string): void;
-  logout(): void;
+  login: (email: string) => void;
+  logout: () => void;
   email: string;
 };
 
-const AuthContext = createContext({
+export const AuthContext = createContext({
   login(email: string) {},
   logout() {},
   email: '',
