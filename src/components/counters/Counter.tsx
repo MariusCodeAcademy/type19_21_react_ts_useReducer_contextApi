@@ -33,6 +33,9 @@ function counterReducer(state: State, action: Action): State {
     case ActionTypes.upBy:
       if (!action.payload) return state;
       return { count: state.count + action.payload };
+    case ActionTypes.downBy:
+      if (!action.payload) return state;
+      return { count: state.count - action.payload };
     default:
       return state;
   }
@@ -52,7 +55,9 @@ export default function Counter() {
         <button onClick={() => dispatch({ type: ActionTypes.down })}>Down</button>
         <button onClick={() => dispatch({ type: ActionTypes.reset })}>Reset</button>
         <button onClick={() => dispatch({ type: ActionTypes.upBy, payload: 5 })}>Up by 5</button>
-        <button>Down by 10</button>
+        <button onClick={() => dispatch({ type: ActionTypes.downBy, payload: 10 })}>
+          Down by 10
+        </button>
       </div>
     </div>
   );
