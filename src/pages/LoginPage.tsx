@@ -1,8 +1,8 @@
-import { useContext } from 'react';
-import { AuthContext } from '../store/AuthProvider';
+import { useAuthCtx } from '../store/AuthProvider';
 
 export default function LoginPage() {
-  const ctxVal = useContext(AuthContext);
+  // const ctxVal = useContext(AuthContext);
+  const ctxVal = useAuthCtx();
   console.log('ctxVal ===', ctxVal);
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();

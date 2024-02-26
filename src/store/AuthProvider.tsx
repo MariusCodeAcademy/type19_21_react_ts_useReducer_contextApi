@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 type CtxType = {
   login: (email: string) => void;
@@ -17,8 +17,8 @@ type AuthProviderProps = {
 };
 
 export default function AuthProvider({ children }: AuthProviderProps) {
-  function login() {
-    console.log('login ===');
+  function login(email: string) {
+    console.log('login user ===', email);
   }
 
   function logout() {
@@ -32,4 +32,10 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   };
 
   return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+}
+
+// custom context hook
+
+export function useAuthCtx() {
+  return useContext(AuthContext);
 }
