@@ -5,18 +5,29 @@ type State = {
 };
 
 enum ActionTypes {
-  up,
-  down,
-  reset,
-  upBy,
-  downBy,
+  up = 'UP',
+  down = 'DOWN',
+  reset = 'RESET',
+  upBy = 'UP_BY',
+  downBy = 'DOWN_BY',
 }
 
-type Action = {
-  // type: 'UP' | 'DOWN' | 'RESET' | 'UP_BY';
-  type: ActionTypes;
-  payload?: number;
+type SimpleAction = {
+  type: 'UP' | 'DOWN' | 'RESET';
 };
+
+type ActionWtPayload = {
+  type: 'UP_BY' | 'DOWN_BY';
+  payload: number;
+};
+
+type Action = SimpleAction | ActionWtPayload;
+
+// type Action = {
+//   // type: 'UP' | 'DOWN' | 'RESET' | 'UP_BY';
+//   type: ActionTypes;
+//   payload?: number;
+// };
 
 const initCounter: State = { count: 0 };
 
@@ -31,10 +42,10 @@ function counterReducer(state: State, action: Action): State {
     case ActionTypes.reset:
       return initCounter;
     case ActionTypes.upBy:
-      if (!action.payload) return state;
+      // if (!action.payload) return state;
       return { count: state.count + action.payload };
     case ActionTypes.downBy:
-      if (!action.payload) return state;
+      // if (!action.payload) return state;
       return { count: state.count - action.payload };
     default:
       return state;
