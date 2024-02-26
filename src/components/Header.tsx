@@ -5,6 +5,8 @@ import { useThemeCtx } from '../store/ThemeProvider';
 export default function Header() {
   // 1. Priklausomai nuo AuthState rodyti login arba logout mygtukus
 
+  // 2. Logout paspaudus vygdom logout
+
   const themeCtx = useThemeCtx();
   return (
     <header style={{ backgroundColor: themeCtx.dark, color: themeCtx.light }} className='header'>
